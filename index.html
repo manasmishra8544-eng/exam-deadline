@@ -9,6 +9,10 @@
   <meta name="theme-color" content="#f5f7ff">
   <title>Exam Deadline — Study Space</title>
   <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#2051d8">
 </head>
 <body class="landing-mode">
   <aside class="sidebar" id="sidebar">
@@ -245,5 +249,12 @@
     <div id="modalFields"></div><div class="modal-actions"><button type="button" class="btn secondary" id="cancelModal">Cancel</button><button class="btn primary" type="submit">Save</button></div></form></dialog>
   <div id="toast" class="toast" role="status"></div>
   <script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch(console.error);
+  });
+}
+</script>
 </body>
 </html>

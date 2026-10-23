@@ -1,0 +1,25 @@
+﻿{
+  "id": "./",
+  "name": "Exam Deadline",
+  "short_name": "Deadline",
+  "description": "Plan your exams, track your syllabus and manage study deadlines.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#071024",
+  "theme_color": "#2051d8",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
