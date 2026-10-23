@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7ff">
+  <title>Exam Deadline — Study Space</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="landing-mode">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#" data-page="home">
+      <span class="logo">ED</span>
+      <span><b>Exam Deadline</b><small>YOUR STUDY SPACE</small></span>
+    </a>
+
+    <p class="nav-label">WORKSPACE</p>
+    <nav>
+<button class="nav-item" data-page="dashboard">▦ <span>Dashboard</span></button>
+      <button class="nav-item" data-page="syllabus">▤ <span>Syllabus</span></button>
+      <button class="nav-item" data-page="exams">◷ <span>Exams & Deadlines</span></button>
+      <button class="nav-item" data-page="analytics">▥ <span>Analytics</span></button>
+      <button class="nav-item" data-page="settings">⚙ <span>Settings</span></button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="tip">
+        <span>✦</span>
+        <b>Small steps add up.</b>
+        <p>One topic at a time. Keep going!</p>
+      </div>
+      <div class="profile"><div class="avatar">S</div>
+        <div><b>My Study Space</b><small>Personal planner</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn mobile-menu" id="menuBtn">☰</button>
+      <div class="breadcrumb">Workspace <span>/</span> <b id="pageName">Home</b></div>
+      <div class="top-actions">
+        <span class="today" id="today"></span>
+        <button class="icon-btn" id="themeBtn" title="Toggle theme">☾</button>
+        <button class="btn primary" data-action="task">＋ Add task</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- HOME PAGE -->
+      <section class="page active" id="home">
+  <div class="landing-top">
+    <a class="landing-brand" href="#" data-page="home">
+      <span class="landing-logo">D</span><span>Deadline</span>
+    </a>
+    <div class="landing-top-actions">
+      <span class="landing-installed">✓ Your study planner</span>
+      <button class="icon-btn" id="landingThemeBtn" title="Toggle theme">☾</button>
+    </div>
+  </div>
+
+  <div class="landing-hero">
+    <div class="landing-copy">
+      <span class="landing-badge">✦ YOUR EXAM SUCCESS STARTS HERE</span>
+      <h1>DEADLINE</h1>
+      <p class="landing-subtitle">Finish your syllabus before the deadline.</p>
+      <div class="landing-actions">
+        <button class="landing-start" data-page="dashboard">START MISSION <span>→</span></button>
+        <button class="landing-link" data-page="syllabus">View syllabus</button>
+      </div>
+      <div class="landing-features">
+        <span>◎ Chapter-level tracking</span>
+        <span>ϟ Daily study planning</span>
+        <span>♧ Progress at a glance</span>
+      </div>
+    </div>
+
+    <div class="landing-art" aria-label="Study planner illustration">
+      <div class="art-orbit orbit-one"></div>
+      <div class="art-orbit orbit-two"></div>
+      <div class="art-calendar">
+        <div class="art-calendar-head"><span>YOUR STUDY PLAN</span><b>✦</b></div>
+        <div class="art-calendar-month">One day at a time.</div>
+        <div class="art-days">
+          <span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span>
+          <b>1</b><b>2</b><b>3</b><b class="art-highlight">4</b><b>5</b><b>6</b><b>7</b>
+          <b>8</b><b>9</b><b>10</b><b>11</b><b>12</b><b>13</b><b>14</b>
+        </div>
+      </div>
+      <div class="art-float art-task"><span>✓</span><div><b>Small steps. Big results.</b><small>Your next chapter awaits</small></div></div>
+      <div class="art-float art-progress"><small>KEEP GOING</small><strong>One topic at a time.</strong><div class="art-progress-line"></div></div>
+      <div class="art-clock"><div class="art-clock-face"><i></i><b></b><span></span></div></div>
+      <div class="art-spark spark-one">✦</div><div class="art-spark spark-two">✧</div>
+    </div>
+  </div>
+
+  <div class="landing-stats">
+    <article class="landing-stat landing-countdown">
+      <span class="landing-stat-label">COUNTDOWN TO YOUR NEXT EXAM</span>
+      <strong id="landingCountdown">—</strong>
+      <small id="landingExamLabel">Add an exam in Exams & Deadlines</small>
+    </article>
+    <article class="landing-stat landing-completion">
+      <span class="landing-stat-label">OVERALL COMPLETION</span>
+      <div class="landing-completion-number"><strong id="landingPercent">0%</strong><small id="landingTopics">Start by adding syllabus topics</small></div>
+      <div class="landing-track"><span id="landingProgressBar"></span></div>
+    </article>
+    <article class="landing-stat landing-motivation">
+      <span class="landing-stat-label">TODAY'S MOTIVATION</span>
+      <blockquote id="landingQuote">"One chapter today is one step closer to your goal."</blockquote>
+      <small>Deadline daily</small>
+    </article>
+  </div>
+
+  <footer class="landing-footer">
+    <div><span class="landing-logo">D</span><div><b>Deadline</b><small>Finish your syllabus before the deadline.</small></div></div>
+    <nav><button data-page="dashboard">Dashboard</button><button data-page="syllabus">Syllabus</button><button data-page="analytics">Analytics</button><button data-page="settings">Settings</button></nav>
+  </footer>
+</section>
+<section class="page" id="dashboard">
+        <div class="welcome">
+          <div><p class="eyebrow">YOUR PERSONAL STUDY SPACE</p>
+            <h1 id="greeting">Welcome back! 👋</h1>
+            <p class="muted">A little progress today makes a big difference tomorrow.</p>
+          </div>
+          <div class="date-card"><span>✦</span><div><small>TODAY IS</small><b id="fullDate"></b></div></div>
+        </div>
+
+        <div class="hero">
+          <div class="hero-text">
+            <span class="hero-label">YOUR NEXT CHAPTER STARTS HERE</span>
+            <h2>Make today<br>count.</h2>
+            <p>Focus on what matters most. Your goals are closer than they feel.</p>
+            <button class="btn hero-button" data-page="syllabus">Continue studying <span>→</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+            <div class="book">▤</div><span class="star star-a">✦</span>
+            <span class="star star-b">✧</span><span class="focus-pill">✦ FOCUS MODE</span>
+          </div>
+        </div>
+
+        <div class="section-title"><div><h2>Your overview</h2><p>Everything you need, in one place.</p></div>
+          <button class="text-btn" data-page="analytics">View analytics →</button>
+        </div>
+
+        <div class="stats">
+          <article class="stat">
+            <div class="stat-heading"><span class="stat-icon purple">▤</span><span>SYLLABUS COMPLETED</span></div>
+            <div class="stat-number"><strong id="progressPercent">0</strong><small>%</small></div>
+            <div class="progress"><span id="progressBar"></span></div>
+            <p id="progressText">0 of 0 topics completed</p>
+          </article>
+          <article class="stat">
+            <div class="stat-heading"><span class="stat-icon blue">✓</span><span>TASKS COMPLETED</span></div>
+            <div class="stat-number"><strong id="tasksDone">0</strong><small>tasks</small></div>
+            <p id="tasksText">Start with one small task.</p>
+            <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </article>
+          <article class="stat">
+            <div class="stat-heading"><span class="stat-icon orange">◷</span><span>UPCOMING EXAMS</span></div>
+            <div class="stat-number"><strong id="examCount">0</strong><small>exams</small></div>
+            <p id="nextExamText">Add your next exam date.</p>
+            <button class="text-btn" data-page="exams">Manage exams →</button>
+          </article>
+        </div>
+
+        <div class="two-columns">
+          <section class="panel">
+            <div class="panel-heading"><div><h3>Today's focus</h3><p>Your priorities for today</p></div>
+              <button class="plus-btn" data-action="task">＋</button></div>
+            <div id="taskList"></div>
+            <button class="add-line" data-action="task">＋ Add a task for today</button>
+          </section>
+          <section class="panel">
+            <div class="panel-heading"><div><h3>Upcoming deadlines</h3><p>Stay one step ahead</p></div>
+              <button class="text-btn" data-page="exams">See all →</button></div>
+            <div id="deadlineList"></div>
+            <button class="wide-btn" data-action="exam">＋ Add exam or deadline</button>
+          </section>
+        </div>
+
+        <section class="panel subject-panel">
+          <div class="panel-heading"><div><h3>Pick up where you left off</h3><p>Your subjects at a glance</p></div>
+            <button class="text-btn" data-page="syllabus">All subjects →</button></div>
+          <div id="subjectOverview" class="subject-overview"></div>
+        </section>
+      </section>
+
+      <!-- SYLLABUS PAGE -->
+      <section class="page" id="syllabus">
+        <div class="page-heading"><div><p class="eyebrow">STUDY ORGANISATION</p><h1>Your syllabus</h1>
+          <p class="muted">Break subjects into topics and track your progress.</p></div>
+          <button class="btn primary" data-action="subject">＋ Add subject</button></div>
+        <div class="toolbar"><input id="search" type="search" placeholder="⌕  Search subjects or topics…">
+          <span class="muted" id="topicSummary"></span></div>
+        <div id="subjectGrid" class="subject-grid"></div>
+        <div id="syllabusEmpty" class="empty hidden"><h3>No subjects found</h3><p>Add a subject or try another search.</p></div>
+      </section>
+
+      <!-- EXAMS PAGE -->
+      <section class="page" id="exams">
+        <div class="page-heading"><div><p class="eyebrow">DATES THAT MATTER</p><h1>Exams & deadlines</h1>
+          <p class="muted">Keep important dates visible and plan ahead.</p></div>
+          <button class="btn primary" data-action="exam">＋ Add exam</button></div>
+        <div class="exam-hero"><div><p class="hero-label">YOUR NEXT MILESTONE</p><h2 id="nextExamTitle">Your next exam goes here</h2><p id="nextExamDate">Add an exam date to start a countdown.</p></div>
+          <div class="countdown"><b id="countdown">—</b><span>DAYS LEFT</span></div></div>
+        <div class="section-title"><div><h2>All dates</h2><p>Upcoming first, so nothing sneaks up on you.</p></div></div>
+        <section class="panel" id="examList"></section>
+      </section>
+
+      <!-- ANALYTICS PAGE -->
+      <section class="page" id="analytics">
+        <div class="page-heading"><div><p class="eyebrow">YOUR PROGRESS, VISUALISED</p><h1>Study analytics</h1>
+          <p class="muted">Celebrate your progress and choose your next step.</p></div></div>
+        <div class="stats">
+          <article class="stat"><div class="stat-heading">TOTAL TOPICS</div><div class="stat-number"><strong id="totalTopics">0</strong></div><p>Across all subjects</p></article>
+          <article class="stat"><div class="stat-heading">COMPLETED TOPICS</div><div class="stat-number"><strong id="completedTopics">0</strong></div><p>Topics you've finished</p></article>
+          <article class="stat"><div class="stat-heading">COMPLETION RATE</div><div class="stat-number"><strong id="completionRate">0%</strong></div><p>Every topic counts</p></article>
+        </div>
+        <section class="panel"><div class="panel-heading"><div><h3>Progress by subject</h3><p>See where you stand.</p></div></div><div id="analyticsSubjects"></div></section>
+        <section class="panel insight"><span>✦</span><div><h3>Keep your momentum</h3><p id="insightText">Add topics to see your progress.</p></div></section>
+      </section>
+
+      <!-- SETTINGS PAGE -->
+      <section class="page" id="settings">
+        <div class="page-heading"><div><p class="eyebrow">MAKE IT YOURS</p><h1>Settings</h1><p class="muted">Personalise your planner and manage your data.</p></div></div>
+        <section class="panel settings-panel"><h3>Appearance</h3><p class="muted">Choose the look that feels right for you.</p>
+          <div class="setting-row"><div><b>Dark mode</b><small>Use a darker theme.</small></div><button id="themeToggle" class="toggle" aria-pressed="false"><span></span></button></div>
+          <hr><h3>Your planner data</h3><p class="muted">Your information is saved in this browser on this device.</p>
+          <div class="setting-actions"><button class="btn secondary" data-action="export">↓ Export backup</button>
+            <label class="btn secondary file-label">↑ Import backup<input id="importFile" type="file" accept=".json,application/json" hidden></label>
+            <button class="btn danger" data-action="reset">Reset all planner data</button></div>
+        </section>
+        <section class="panel about"><span class="logo">ED</span><div><h3>Exam Deadline</h3><p class="muted">A calmer way to organise your studies.</p><small>STUDY SMART · ONE TOPIC AT A TIME</small></div></section>
+      </section>
+    </div>
+    <footer class="footer"><span>Made for your next big win <b>♥</b></span><span>EXAM DEADLINE · YOUR STUDY SPACE</span></footer>
+  </main>
+
+  <dialog id="modal"><form id="modalForm"><div class="modal-heading"><div><p class="eyebrow">QUICK ACTION</p><h2 id="modalTitle">Add item</h2></div><button type="button" class="icon-btn" id="closeModal">×</button></div>
+    <div id="modalFields"></div><div class="modal-actions"><button type="button" class="btn secondary" id="cancelModal">Cancel</button><button class="btn primary" type="submit">Save</button></div></form></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
