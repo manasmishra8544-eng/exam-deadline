@@ -62,6 +62,11 @@
     if(bar) bar.style.width = pct(completed(), topics().length) + '%';
   }
   function render(){
+    document.body.classList.toggle('dark', !!data.dark);
+    const themeIcon = data.dark ? '☀' : '☾';
+    ['themeBtn','landingThemeBtn'].forEach(id => { const b = document.getElementById(id); if (b) b.textContent = themeIcon; });
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) themeToggle.setAttribute('aria-pressed', String(!!data.dark));
     renderLanding();
 
     const tasks = Array.isArray(data.tasks) ? data.tasks : [];
@@ -131,7 +136,135 @@ function renderTasks(items){
   });
   document.addEventListener('submit',e=>{const form=e.target.closest('[data-add-topic]');if(!form)return;e.preventDefault();const name=new FormData(form).get('topic')?.trim();if(!name)return;const s=data.subjects.find(x=>x.id===form.dataset.addTopic);if(s){s.topics.push({id:uid(),name,done:false});render();toast('Topic added.');}});
   $('#search').addEventListener('input',renderSyllabus);
-  function toggleTheme(){data.dark=!data.dark;render();}$('#themeBtn').addEventListener('click',toggleTheme);$('#themeToggle').addEventListener('click',toggleTheme);$('#menuBtn').addEventListener('click',()=>$('#sidebar').classList.toggle('open'));
+  function toggleTheme(){data.dark=!data.dark;save();render();}$('#themeBtn').addEventListener('click',toggleTheme);$('#landingThemeBtn')?.addEventListener('click',toggleTheme);$('#themeToggle').addEventListener('click',toggleTheme);$('#menuBtn').addEventListener('click',()=>$('#sidebar').classList.toggle('open'));
   function exportBackup(){const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='exam-deadline-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Backup downloaded.');}
+  // PA2_SYLLABUS_2026_SEEDED
+  if (!data.pa2Syllabus2026Added) {
+    const syllabus = [
+      {
+        id: "pa2-2026-economics",
+        name: "Economics",
+        topics: [
+          "Sectors of economy",
+          "Meaning and types of sectors of economy",
+          "Role of primary, secondary and tertiary sector in Indian economy",
+          "Organised and unorganised sector",
+          "Meaning and importance",
+          "Role of the unorganised and organised sector in Indian economy"
+        ]
+      },
+      {
+        id: "pa2-2026-physics",
+        name: "Science - Physics",
+        topics: [
+          "How How Forces Affect Motion (Force and Laws of Motion)",
+          "Work, Energy, and Simple Machines"
+        ]
+      },
+      {
+        id: "pa2-2026-biology",
+        name: "Biology",
+        topics: ["REPRODUCTION : HOW LIFE CONTINUES"]
+      },
+      {
+        id: "pa2-2026-chemistry",
+        name: "Chemistry",
+        topics: ["Atomic foundations of matter"]
+      },
+      {
+        id: "pa2-2026-geography-history",
+        name: "Geography & History/DP",
+        topics: [
+          "Chapter 2: Life on Earth (Theme A: Earth and Life Systems)",
+          "Chapter 3: Building a Resilient India (1000–1700 CE) (Theme B: India and the World through Time)"
+        ]
+      },
+      {
+        id: "pa2-2026-mathematics",
+        name: "Mathematics",
+        topics: [
+          "Ch.5 - I’m Up and Down, and Round and Round",
+          "Ch.7- The Mathematics of Maybe: Introduction to Probability",
+          "Ch.8 - Predicting What Comes Next: Exploring Sequences and Progressions"
+        ]
+      },
+      {
+        id: "pa2-2026-english",
+        name: "English",
+        topics: [
+          "Literature: The World of Limitless Possibilities",
+          "Literature: Twin Melodies",
+          "Literature: Nine Gold Medals (Poem)",
+          "Literature: A Friend Found in Music (Poem)",
+          "Grammar: Parts of Speech",
+          "Grammar: Tenses (All types)",
+          "Grammar: Modal Auxiliary",
+          "Grammar: Reported Speech",
+          "Grammar: Editing/Omitting",
+          "Grammar: Sentence Rearrangement",
+          "Grammar: Sentence Transformation",
+          "Writing & Composition: Informal Invitation",
+          "Writing & Composition: Letter to Editor",
+          "Writing & Composition: E-mail",
+          "Writing & Composition: Writing a Factual Description/ Magazine Article",
+          "Writing & Composition: Descriptive Essay"
+        ]
+      },
+      {
+        id: "pa2-2026-hindi",
+        name: "Hindi",
+        topics: [
+          "पाठ - 4 ऐसी भी बातें होती है",
+          "पाठ - 11 झांसी की रानी",
+          "पत्र लेखन",
+          "संवाद लेखन"
+        ]
+      },
+      {
+        id: "pa2-2026-computer",
+        name: "Computer Applications",
+        topics: [
+          "Cyber Safety",
+          "Presentation Tools",
+          "Graphics, Tables and columns"
+        ]
+      }
+    ];
+
+    syllabus.forEach((item, index) => {
+      let subject = data.subjects.find(
+        s => s.id === item.id || s.name.trim().toLowerCase() === item.name.toLowerCase()
+      );
+
+      if (!subject) {
+        subject = {
+          id: item.id,
+          name: item.name,
+          color: colors[data.subjects.length % colors.length],
+          topics: []
+        };
+        data.subjects.push(subject);
+      }
+
+      if (!Array.isArray(subject.topics)) subject.topics = [];
+
+      item.topics.forEach((topicName, topicIndex) => {
+        const exists = subject.topics.some(
+          t => t.name.trim().toLowerCase() === topicName.trim().toLowerCase()
+        );
+
+        if (!exists) {
+          subject.topics.push({
+            id: item.id + "-topic-" + topicIndex,
+            name: topicName,
+            done: false
+          });
+        }
+      });
+    });
+
+    data.pa2Syllabus2026Added = true;
+    save();
+  }
   render();
 })();
