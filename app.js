@@ -61,7 +61,9 @@
     const bar = document.getElementById('landingProgressBar');
     if(bar) bar.style.width = pct(completed(), topics().length) + '%';
   }
+  // EXAM_DEADLINE_RENDER_AUTOSAVE_V1
   function render(){
+    save();
     document.body.classList.toggle('dark', !!data.dark);
     const themeIcon = data.dark ? '☀' : '☾';
     ['themeBtn','landingThemeBtn'].forEach(id => { const b = document.getElementById(id); if (b) b.textContent = themeIcon; });
